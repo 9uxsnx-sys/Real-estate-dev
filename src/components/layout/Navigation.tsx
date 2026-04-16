@@ -103,13 +103,6 @@ export const Navigation: React.FC = () => {
             >
               {t('nav.projects')}
             </a>
-            <a
-              href="#contact"
-              className="text-[14px] font-light text-[rgb(44,44,44)] hover:text-[rgb(136,136,136)] transition-colors"
-              style={{ fontFamily: 'Geist, sans-serif' }}
-            >
-              {t('nav.contact')}
-            </a>
           </div>
 
           {/* Language Switcher - Desktop */}
@@ -149,14 +142,6 @@ export const Navigation: React.FC = () => {
                 style={{ fontFamily: 'Geist, sans-serif' }}
               >
                 {t('nav.projects')}
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 text-[16px] font-light text-[rgb(44,44,44)]"
-                style={{ fontFamily: 'Geist, sans-serif' }}
-              >
-                {t('nav.contactMobile')}
               </a>
               {/* Language Switcher - Mobile */}
               <div className="py-3 border-t border-[rgb(230,230,230)] mt-3">
