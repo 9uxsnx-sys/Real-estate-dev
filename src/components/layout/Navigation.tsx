@@ -121,10 +121,10 @@ export const Navigation: React.FC = () => {
           <AnimatePresence>
             {mobileMenuOpen && (
               <motion.div 
-                className="absolute top-full left-0 right-0 bg-white border-t border-[rgb(230,230,230)] py-4 px-4 md:hidden"
-                initial={{ opacity: 0, y: -15 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 0.25, ease: "easeOut" } }}
-                exit={{ opacity: 0, y: -15, transition: { duration: 0.2 } }}
+                className="absolute top-full left-0 right-0 bg-white border-t border-[rgb(230,230,230)] shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-b-xl py-4 px-4 md:hidden"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
+                exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
               >
                 <a
                   href={`/${currentLang}`}
