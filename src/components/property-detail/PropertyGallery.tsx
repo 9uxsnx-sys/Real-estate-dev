@@ -29,7 +29,7 @@ export const PropertyGallery: React.FC<PropertyGalleryProps> = ({ images, proper
       <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr] md:grid-rows-2 gap-4 w-full">
         {/* Main Large Image - Spans 2 rows */}
         <div 
-          className="md:col-span-1 md:row-span-2 aspect-[16/10] overflow-hidden rounded-3xl cursor-pointer"
+          className="md:col-span-1 md:row-span-2 aspect-[16/10] md:aspect-auto md:h-full overflow-hidden rounded-3xl cursor-pointer"
           onClick={() => openModal(0)}
         >
           <img
@@ -43,7 +43,7 @@ export const PropertyGallery: React.FC<PropertyGalleryProps> = ({ images, proper
         {sideImages.map((image, index) => (
           <div 
             key={index} 
-            className="relative aspect-[16/9] overflow-hidden rounded-3xl cursor-pointer"
+            className="relative aspect-[16/9] md:aspect-auto md:h-full overflow-hidden rounded-3xl cursor-pointer"
             onClick={() => openModal(index + 1)}
           >
             <img
