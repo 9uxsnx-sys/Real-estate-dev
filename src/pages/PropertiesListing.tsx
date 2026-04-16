@@ -146,7 +146,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
             {visibleProperties.map((property) => (
               <div key={property.id} className="property-card">
                 <PropertyCard
-                  images={[property.image]}
+                  imageUrl={property.image}
                   price={formatPrice(property.price)}
                   title={property.name}
                   location={`${property.projectName}, ${property.location}`}
