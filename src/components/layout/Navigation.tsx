@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -117,20 +118,26 @@ export const Navigation: React.FC = () => {
           </div>
 
           {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="absolute top-full left-0 right-0 bg-white border-t border-[rgb(230,230,230)] py-4 px-4 md:hidden">
-              <a
-                href={`/${currentLang}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(`/${currentLang}`);
-                  setMobileMenuOpen(false);
-                }}
-                className="block py-3 text-[16px] font-light text-[rgb(44,44,44)]"
-                style={{ fontFamily: 'Geist, sans-serif' }}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div 
+                className="absolute top-full left-0 right-0 bg-white border-t border-[rgb(230,230,230)] py-4 px-4 md:hidden"
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.25, ease: "easeOut" } }}
+                exit={{ opacity: 0, y: -15, transition: { duration: 0.2 } }}
               >
-                {t('nav.properties')}
-              </a>
+                <a
+                  href={`/${currentLang}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/${currentLang}`);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block py-3 text-[16px] font-light text-[rgb(44,44,44)]"
+                  style={{ fontFamily: 'Geist, sans-serif' }}
+                >
+                  {t('nav.properties')}
+                </a>
               <a
                 href={`/${currentLang}/projects`}
                 onClick={(e) => {
@@ -155,8 +162,9 @@ export const Navigation: React.FC = () => {
               <div className="py-3 border-t border-[rgb(230,230,230)] mt-3">
                 <LanguageSwitcher />
               </div>
-            </div>
+            </motion.div>
           )}
+          </AnimatePresence>
         </div>
       </div>
     </nav>

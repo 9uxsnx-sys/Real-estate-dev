@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { properties } from '../../data/properties';
 
@@ -68,8 +69,14 @@ const CustomDropdown: React.FC<{
         </svg>
       </button>
 
-      {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-full min-w-[180px] bg-white rounded-2xl shadow-xl border border-[rgb(230,230,230)] overflow-visible z-[9999] max-h-[300px] overflow-y-auto" style={{ zIndex: 9999 }}>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            className="absolute top-full left-0 mt-2 w-full min-w-[180px] bg-white rounded-2xl shadow-xl border border-[rgb(230,230,230)] overflow-visible z-[9999] max-h-[300px] overflow-y-auto"
+            initial={{ opacity: 0, y: -8, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.2, ease: "easeOut" } }}
+            exit={{ opacity: 0, y: -8, scale: 0.98, transition: { duration: 0.15 } }}
+          >
           {options.map((option) => (
             <button
               key={option.value}
@@ -100,8 +107,9 @@ const CustomDropdown: React.FC<{
               )}
             </button>
           ))}
-        </div>
-      )}
+        </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
