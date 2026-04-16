@@ -41,28 +41,12 @@ export const PropertyCard = ({
       onClick={onClick}
     >
       {/* Image Section */}
-      <div className="w-full aspect-[4/3] bg-zinc-100 rounded-2xl overflow-hidden relative">
+      <div className="w-full aspect-[4/3] bg-zinc-100 rounded-3xl overflow-hidden relative">
         <img 
           src={imageUrl} 
           alt={title || location} 
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        {/* Property Type Badge */}
-        {propertyType && (
-          <div className="absolute top-3 left-3">
-            <span className="bg-white/90 backdrop-blur-sm text-[10px] px-2 py-1 rounded-md">
-              {propertyType}
-            </span>
-          </div>
-        )}
-        {/* New Badge */}
-        {isNew && (
-          <div className="absolute top-3 right-3">
-            <span className="bg-black text-white text-[10px] px-2 py-1 rounded-md">
-              New
-            </span>
-          </div>
-        )}
       </div>
 
       {/* Content Section */}
