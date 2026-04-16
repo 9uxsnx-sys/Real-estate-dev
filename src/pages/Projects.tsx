@@ -105,7 +105,7 @@ export const Projects: React.FC = () => {
       </section>
 
       {/* Project Sections - Alternating layouts (60/40 split) */}
-      {projects.slice(0, 3).map((project, index) => (
+      {projects.slice(0, 4).map((project, index) => (
         <ProjectAlternatingSection
           key={project.id}
           project={project}
