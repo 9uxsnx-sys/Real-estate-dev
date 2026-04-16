@@ -74,10 +74,10 @@ export const LanguageSwitcher: React.FC = () => {
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 z-40"
+            className="fixed inset-0 z-[9999]"
             onClick={() => setIsOpen(false)}
           />
-          <div className={`absolute top-full mt-2 py-2 bg-white border border-[rgb(230,230,230)] rounded-xl shadow-lg z-50 min-w-[120px] ${isRTL ? 'right-0' : 'left-0'}`}>
+          <div className={`absolute top-full mt-2 py-2 bg-white border border-[rgb(230,230,230)] rounded-xl shadow-lg z-[10000] min-w-[120px] ${isRTL ? 'right-0' : 'left-0'}`}>
             {languages.map((language) => (
               <button
                 key={language.code}
